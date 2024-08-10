@@ -1,6 +1,6 @@
 # Personal Finance Dashboard
 
-This is a simple personal finance management tool designed for young adults and new graduates(or any other person). It helps users track their income, expenses, and savings goals, providing insights into spending habits and suggesting budget adjustments using AI JSON and AWS Bedrock with Claude AI.
+This is a simple personal finance management tool designed for young adults and new graduates(or any other person). It helps users track their income, expenses, and savings goals, providing insights into spending habits and suggesting budget adjustments using AI JSON and AWS Bedrock.
 
 ## Features
 
@@ -42,10 +42,8 @@ Follow the prompts in the terminal to input your financial data and receive insi
 
 ## Note
 
-This application uses AI JSON with AWS Bedrock and the Claude AI model. Make sure you have the necessary permissions and quotas set up in your AWS account to use these services.
+This application uses AI JSON with AWS Bedrock and the Claude model.
 
 ## AI JSON Configuration
 
 The `flow.ai.yaml` file contains the AI JSON configuration for this project. It defines the flow of operations, including prompts for financial analysis, budget recommendations, and savings progress calculations.
-
-To modify the behavior of the AI model or add new features, you can edit the `flow.ai.yaml` file. Refer to the AI JSON documentation for more information on how to structure and extend the flow.
