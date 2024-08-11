@@ -68,8 +68,13 @@ def dashboard():
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     if request.method == 'POST':
-        session.pop('user_id', None)
-        return redirect(url_for('login'))
+        if 'user_id' in session:
+            user_id = session['user_id']
+            # Delete the user from the database
+            users.delete_one({'_id': ObjectId(user_id)})
+            # Clear the session
+            session.clear()
+        return redirect(url_for('register'))
     return render_template('logout.html')
 
 @app.route('/income')

@@ -47,7 +47,7 @@
         console.log('Data saved:', data);  // Add this line for debugging
     
         // Redirect to dashboard
-        window.location.href = 'dashboard.html';
+        window.location.href = '/dashboard'
     }
     
     function loadData() {

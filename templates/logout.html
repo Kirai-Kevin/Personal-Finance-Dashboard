@@ -20,7 +20,7 @@
     <div class="login-box">
         <h2>Logout</h2>
         <p>Are you sure you want to logout?</p>
-        <form action="{{ url_for('logout') }}" method="POST">
+        <form method="POST" action="{{ url_for('logout') }}">
             <button type="submit" class="btn">Confirm Logout</button>
         </form>
         <div class="signup-link">
