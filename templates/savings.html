@@ -39,32 +39,54 @@
             <h1>Welcome to Your Financial Dashboard</h1>
             
             <section class="financial-summary">
-                <div class="summary-card">
-                    <h3>Total Income</h3>
-                    <p id="total-income">$0</p>
+                <div class="rowset">
+                    <div class="rowset1">
+                        <div class="summary-card">
+                            <h3>Total Income</h3>
+                            <p id="total-income">$0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Total Expenses</h3>
+                            <p id="total-expenses">$0</p>
+                        </div>
+                        <div class="summary-card">
+                            <h3>Net Savings</h3>
+                            <p id="net-savings">$0</p>
+                        </div>
+                        <section class="charts">
+                            <div id="income-expense-chart" style="width:500px; height:300px;"></div>
+                           
+                          
+                        </section>
+
+                    </div>
+                    <div class="input-form">
+                        <h2>Update Financial Data</h2>
+                        <form id="financial-data-form">
+                            <div class="form-group">
+                                <label for="month">Month:</label>
+                                <input type="text" id="month" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="income">Income:</label>
+                                <input type="number" id="income" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expenses">Expenses:</label>
+                                <input type="number" id="expenses" required>
+                            </div>
+                            <button type="submit">Update Data</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="summary-card">
-                    <h3>Total Expenses</h3>
-                    <p id="total-expenses">$0</p>
-                </div>
-                <div class="summary-card">
-                    <h3>Net Savings</h3>
-                    <p id="net-savings">$0</p>
-                </div>
+               
+               
             </section>
 
-            <section class="charts">
-                <div id="income-expense-chart" style="width:100%; height:400px;"></div>
-                <div id="savings-goal-chart" style="width:100%; height:400px;"></div>
-            </section>
+           
            
 
-            <section class="recent-transactions">
-                <h2>Recent Transactions</h2>
-                <table id="transactions-table">
-                    <!-- Transaction rows will be inserted here dynamically -->
-                </table>
-            </section>
+           
         </main>
         
     </div>

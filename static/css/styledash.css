@@ -83,6 +83,7 @@ nav{
 }
 .main{
     margin-left: 20px;
+    width: calc(100% - 95px);
 }
 .headers{
    position: sticky;
@@ -319,4 +320,9 @@ nav{
 
 .input-form button:hover {
     background-color: #0cd;
+}
+.rowsave{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
