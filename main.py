@@ -2,6 +2,7 @@ import secrets
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from datetime import date
 import bcrypt
 
 app = Flask(__name__, static_folder='static', static_url_path='/static')
@@ -15,6 +16,11 @@ users = db.users
 @app.route('/')
 def home():
     return redirect(url_for('login'))
+
+@app.route("/current_date")
+def index():
+    current_date = date.today().strftime("%A %B %d, %Y")
+    return render_template("index.html", current_date=current_date)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -62,9 +68,11 @@ def register():
 def dashboard():
     if 'user_id' in session:
         user = users.find_one({'_id': ObjectId(session['user_id'])})
-        return render_template('dashboard.html')
+        if user:
+            current_date = date.today().strftime("%A %B %d, %Y")
+            return render_template('dashboard.html', current_date=current_date, user_name=user['name'])
     return redirect(url_for('login'))
-
+    
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     if request.method == 'POST':

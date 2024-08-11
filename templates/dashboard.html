@@ -213,12 +213,12 @@ function drawDonutChart() {
           <div id="balanceAmount">$ 14,822</div>
       </div>
      <h3 class="h"><i class="fa-solid fa-chart-line"></i>Dashboard</h3>
-     <h4 class="h">Saturday August,10 2024</h4>
+     <h4 class="h">{{ current_date }}</h4>
      <h3 class="update h"><a href="{{ url_for('update_form') }}">Update</a></h3>
      <h3 class="update h"><a href="{{ url_for('login') }}">Login</a></h3>
      <div class="profile">
       <div>
-      <h3>Michael James</h3>
+      <h3>  <h3>{{ user_name }}</h3></h3>
       <h6>Programming</h6>
     </div>
     <div class="logo">
