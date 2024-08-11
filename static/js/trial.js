@@ -40,14 +40,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create charts container
     const chartsContainer = document.createElement('div');
     chartsContainer.className = 'charts-container';
+    chartsContainer.style.display = 'flex';
+    chartsContainer.style.justifyContent = 'space-between';
     chartsContainer.style.marginTop = '20px';
+
     
+
+
+    // Create chart divs
     const incomeExpenseChartDiv = document.createElement('div');
     incomeExpenseChartDiv.id = 'income-expense-chart';
-    incomeExpenseChartDiv.style.width = '100%';
+    incomeExpenseChartDiv.style.width = '48%';
     incomeExpenseChartDiv.style.height = '400px';
-    
+    updateChart();
+
+    const savingsGoalChartDiv = document.createElement('div');
+    savingsGoalChartDiv.id = 'savings-goal-chart';
+    savingsGoalChartDiv.style.width = '48%';
+    savingsGoalChartDiv.style.height = '400px';
+
     chartsContainer.appendChild(incomeExpenseChartDiv);
+    chartsContainer.appendChild(savingsGoalChartDiv);
+
     document.querySelector('.charts').appendChild(chartsContainer);
 
     // Highcharts theme
@@ -271,7 +285,75 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Create Savings Goal chart
-    
+    Highcharts.chart('savings-goal-chart', {
+        chart: {
+            type: 'solidgauge'
+        },
+        title: {
+            text: 'Savings Goal Progress'
+        },
+        pane: {
+            center: ['50%', '85%'],
+            size: '140%',
+            startAngle: -90,
+            endAngle: 90,
+            background: {
+                backgroundColor: '#EEE',
+                innerRadius: '60%',
+                outerRadius: '100%',
+                shape: 'arc'
+            }
+        },
+        tooltip: {
+            enabled: false
+        },
+        yAxis: {
+            stops: [
+                [0.1, '#55BF3B'], // green
+                [0.5, '#DDDF0D'], // yellow
+                [0.9, '#DF5353'] // red
+            ],
+            lineWidth: 0,
+            tickWidth: 0,
+            minorTickInterval: null,
+            tickAmount: 2,
+            title: {
+                y: -70
+            },
+            labels: {
+                y: 16
+            },
+            min: 0,
+            max: financialData.savingsGoal,
+            title: {
+                text: 'Progress'
+            }
+        },
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Progress',
+            data: [financialData.savingsProgress],
+            dataLabels: {
+                format: '<div style="text-align:center"><span style="font-size:25px;color:' +
+                    ('black') + '">{y}</span><br/>' +
+                    '<span style="font-size:12px;color:silver">$ / ' + financialData.savingsGoal + ' $</span></div>'
+            },
+            tooltip: {
+                valueSuffix: ' $'
+            }
+        }]
+    });
 
     // Create savings tips section
     const savingsTipsSection = document.createElement('div');

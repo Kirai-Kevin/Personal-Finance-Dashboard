@@ -321,8 +321,76 @@ nav{
 .input-form button:hover {
     background-color: #0cd;
 }
-.rowsave{
+
+.rowset {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 100%;
+    margin-bottom: 20px;
+}
+
+.summary-card {
+    flex: 1;
+    margin-right: 10px;
+    padding: 15px;
+    background-color: #101e32;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.summary-card:last-child {
+    margin-right: 0;
+}
+
+
+
+.input-form {
+    width: 600px;
+    margin-top: 20px;
+    height: 500px;
+}
+
+.input-form {
+    background-color: #101e32;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #E0E0E3;
+}
+
+.input-form h2 {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #2b908f;
+    border-radius: 5px;
+    background-color: #1e293b;
+    color: #E0E0E3;
+}
+
+.input-form button {
+    background-color: #2b908f;
+    color: #E0E0E3;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-form button:hover {
+    background-color: #38a1a3;
 }
